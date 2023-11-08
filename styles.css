@@ -1,0 +1,225 @@
+* {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+}
+
+p::selection, h1::selection {
+   background: red;
+}
+
+body {
+   max-height: 100vh;
+   width: 100%;
+   background-color: #17191E;
+ }
+
+ main {
+   padding: 2rem 0;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+ }
+ 
+ header {
+   padding-top: 3rem;
+    position: relative;
+    text-align: center;
+    color: white;
+ }
+ 
+ header img {
+    width: 62%;
+    height: auto;
+    border-radius: 15px;
+ }
+ 
+ header .title-description h1 {
+   font-size: 3rem;
+   padding-bottom: 2rem;
+ }
+
+ header .title-description {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 55%;
+    left: 20%;
+    right: 20%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.4rem;
+ }
+
+ .container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    border: solid 2px transparent;
+    border-radius: 15px;
+    padding: 1rem 1rem;
+    background-color: #1E2028;
+    color: white;
+ }
+ .container p {
+    font-size: 4rem;
+    padding: 1rem;
+    text-align: start;
+ }
+ .container span {
+    font-size: 1.4rem;
+    padding: 4rem 0;
+    text-align: start;
+ }
+ .container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    padding: .5rem;
+ }
+ 
+ .display-grid {
+   display: grid;
+   grid-template-areas: 1fr 1fr;
+   grid-template-areas: "description image";
+   grid-template-columns: 50% 50%;
+ }
+
+ .description{
+   grid-area: "description";
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .images{
+   grid-area: "image";
+ }
+
+ footer {
+    background-color: #17191E;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    min-height: 50px;
+ }
+ 
+ .carrossel-conteiner {
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 30px auto;
+    width: 1100px;
+    height: 550px;
+    
+}
+.galeria {
+    padding: 0;
+    margin: 0;
+    width: 400%;
+    display: flex;
+    flex-flow: row nowrap;
+    transition: all 600ms ease-in-out;
+}
+
+/* Todas as img têm as mesmas dimensões e ficam ofuscadas
+enquanto não estiverem selecionadas */
+.galeria img {
+    width: 1100px;
+    height: 550px;
+    border-radius: 30px;
+}
+
+/* Os inputs são escondidos, para dar lugar aos labels */
+.carrossel-conteiner input {
+    display: none;
+    z-index: -1;
+}
+
+/* Customizações de estilo e de comportamento dos labels,
+que fazem o papel dos radio buttons do carrossel */
+.botao:focus {
+
+}
+.labels {
+    z-index: 1;
+    position: absolute;
+    top: 450px;
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+}
+.label {
+    border: 3px rgb(0, 0, 0) solid;
+    padding: 8px;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 1s;
+}
+label:not(:last-child) {
+    margin-right: 50px;
+}
+label:hover {
+    opacity: 1;
+}
+
+/* Os labels que representam os radio buttons
+mudam a aparência */
+#radio1:checked ~ .labels #label1 {
+    background: rgb(182, 178, 163);
+    opacity: 1;
+}
+#radio2:checked ~ .labels #label2 {
+    background: rgb(182, 179, 170);
+    opacity: 1;
+}
+#radio3:checked ~ .labels #label3 {
+    background: rgb(214, 211, 197);
+    opacity: 1;
+}
+#radio4:checked ~ .labels #label4 {
+    background: rgb(214, 212, 203);
+    opacity: 1;
+}
+
+/* Definição de movimentos da galeria */
+.carrossel-conteiner > #radio1:checked ~ .galeria {
+    transform: translateX(0%);
+}
+.carrossel-conteiner > #radio2:checked ~ .galeria {
+    transform: translateX(-25%);
+}
+.carrossel-conteiner > #radio3:checked ~ .galeria {
+    transform: translateX(-50%);
+}
+.carrossel-conteiner > #radio4:checked ~ .galeria {
+    transform: translateX(-75%);
+}
+
+ 
+ @media only screen and (max-width: 600px) {
+   header h1 {
+       font-size: 24px;
+   }
+}
+
+@media only screen and (max-width: 800px) {
+   .container {
+       width: 100%;
+   }
+
+   .container img, .footer-images img {
+       width: 100%;
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   .footer-images img {
+       width: 50%;
+   }
+}
