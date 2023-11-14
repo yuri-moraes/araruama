@@ -55,7 +55,7 @@ body {
  }
 
  .container {
-    width: 60%;
+    width: 50%;
     margin: auto;
     text-align: center;
     border: solid 2px transparent;
@@ -81,11 +81,9 @@ body {
     padding: .5rem;
  }
  
- .display-grid {
-   display: grid;
-   grid-template-areas: 1fr 1fr;
-   grid-template-areas: "description image";
-   grid-template-columns: 50% 50%;
+ .display-flex {
+   display: flex;
+   flex-direction: column;
  }
 
  .description{
@@ -241,5 +239,44 @@ mudam a aparência */
     }
     header {
         padding-bottom: 3rem;
+    }
+}
+@media(max-width: 726px) {
+    header .title-description {
+        top: 40%;
+        font-size: .90rem;
+    }
+    .container p {
+        font-size: 3rem;
+    }
+    header .title-description h1 {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media(max-width: 596px) {
+    .container {
+        margin-top: 4rem;
+    }
+    .container p {
+        font-size: 2rem;
+    }
+    .container span {
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+    main {
+        gap: .5rem;
+    }
+}
+
+@media(max-width: 493px) {
+    header .title-description h1 {
+        font-size: 1rem;
+        padding-bottom: .5rem;
+    }
+    header .title-description p {
+        font-size: .80rem;
     }
 }
